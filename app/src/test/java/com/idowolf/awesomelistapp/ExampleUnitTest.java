@@ -1,4 +1,4 @@
-package com.idowolf.awesometoastapp;
+package com.idowolf.awesomelistapp;
 
 import org.junit.Test;
 

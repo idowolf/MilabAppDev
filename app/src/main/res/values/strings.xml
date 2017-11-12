@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">AwesomeToastApp</string>
+    <string name="app_name">The Rightful Heir</string>
     <string name="action_settings">Settings</string>
     <string name="edittext_hint">Enter a sentence</string>
-    <string name="button_text">Click here!</string>
+    <string name="stark">Stark</string>
     <string name="settings_message">There\'s nothing to set here :)</string>
+    <string name="lannister">Lannister</string>
+    <string name="title_activity_list">Your House</string>
+    <string name="image">Image</string>
+    <string name="name">Name</string>
 </resources>
