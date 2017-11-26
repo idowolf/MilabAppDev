@@ -4,4 +4,5 @@
     <string name="enter_search_text_here">Enter search text here...</string>
     <string name="search_text">Search</string>
     <string name="first_result">First result:</string>
+    <string name="err_no_text">Error: No text inserted.</string>
 </resources>
