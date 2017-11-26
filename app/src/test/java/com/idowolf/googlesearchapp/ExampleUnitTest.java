@@ -1,4 +1,4 @@
-package com.idowolf.intervalquotesapp;
+package com.idowolf.googlesearchapp;
 
 import org.junit.Test;
 

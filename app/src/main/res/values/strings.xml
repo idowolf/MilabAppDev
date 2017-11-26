@@ -1,7 +1,4 @@
 <resources>
-    <string name="app_name">IntervalQuotesApp</string>
+    <string name="app_name">GoogleSearchApp</string>
     <string name="action_settings">Settings</string>
-    <string name="button_start">Start</string>
-    <string name="edittext_hint">Minutes of interval</string>
-    <string name="button_stop">Stop</string>
 </resources>

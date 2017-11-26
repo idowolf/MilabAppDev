@@ -1,4 +1,4 @@
-package com.idowolf.intervalquotesapp;
+package com.idowolf.googlesearchapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.idowolf.intervalquotesapp", appContext.getPackageName());
+        assertEquals("com.idowolf.googlesearchapp", appContext.getPackageName());
     }
 }
