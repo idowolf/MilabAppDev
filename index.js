@@ -19,8 +19,8 @@ function readWithFilename(res,filename) {
 
 app.set('port', (process.env.PORT || 5000));
 
-app.get('/', function(req, res) {
-    response.send(`Usage: 1. /getTime 2. /getFile?filename=ABC.txt 3. /getFile/ABC.txt`)
+app.get('/', (req, res) => {
+    res.send(`Usage: 1. /getTime 2. /getFile?filename=ABC.txt 3. /getFile/ABC.txt`);
 });
 
 app.get('/getFile', (req, res) => {
