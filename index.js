@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
     res.send(`Usage: /files/filename. Files include: 'dankmeme(1-10).png' OR 'TestFile(1-3).txt'`);
 });
 
+app.get('/files', (req, res) => {
+    res.send(`You forgot to put in a file! Try 'dankmeme(1-10).png' OR 'TestFile(1-3).txt'`);
+});
+
 app.get('/files/:filename', function(req, res) {
     let filename = req.params.filename;
     res.setHeader("Content-Type", mime.lookup(req.originalUrl));
