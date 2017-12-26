@@ -1,39 +1,23 @@
-let express = require('express');
-let app = express();
-let fs = require('fs');
-
-function getFormattedTime() {
-    return new Date().toISOString().
-        replace(/T/, ' ').
-        replace(/\..+/, '');
-}
-
-function readWithFilename(res,filename) {
-    fs.readFile(filename, 'utf8', function(err, contents) {
-        if(err)
-            res.send(`Error loading file ${filename}`);
-        else
-            res.send(contents);
-    });
-}
+const express = require('express');
+const app = express();
+const fs = require('fs');
+const mime = require('mime-types');
 
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', (req, res) => {
-    res.send(`Usage: 1. /getTime 2. /getFile?filename=ABC.txt 3. /getFile/ABC.txt`);
+    res.send(`Usage: /files/filename. Files include: 'dankmeme(1-10).png' OR 'TestFile(1-3).txt'`);
 });
 
-app.get('/getFile', (req, res) => {
-    let filename = req.query.filename || "<unknown>";
-    readWithFilename(res,filename)});
-
-app.get('/getFile/:filename', function(req, res) {
+app.get('/files/:filename', function(req, res) {
     let filename = req.params.filename;
-    readWithFilename(res,filename);
-});
-
-app.get('/getTime', (req, res) => {
-    res.send(getFormattedTime());
+    res.setHeader("Content-Type", mime.lookup(req.originalUrl));
+    fs.readFile(filename, 'utf8', function(err, contents) {
+        if(err)
+            res.send(`Error loading file '${filename}'.\nDid you check out the lovely images at 'dankmeme(1-10).png'?\nOr the text files 'TestFile(1-3).txt?'`);
+        else
+            fs.createReadStream("./" + filename).pipe(res);
+    });
 });
 
 app.listen(app.get('port'), function() {
