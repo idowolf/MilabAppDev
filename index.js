@@ -28,13 +28,12 @@ function getCurrentFormattedTime() {
     return new Date().toString();
 }
 
-app.post('/', (req, res, next) => {
-    console.dir(req.body);
+app.post('/', (req, res) => {
     let timeZone = req.body.timeZone;
 if(timeZone == "" || timeZone == null) {
     res.json(getCurrentFormattedTime());
 } else {
-    res.send(calcTime(timezone));
+    res.json(calcTime(timezone));
 }
 });
 

@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 class TimeFetcher {
     private RequestQueue _queue;
-    private final static String REQUEST_URL = "http://10.0.2.2:8080/";
+    private final static String REQUEST_URL = "https://intense-plateau-61675.herokuapp.com/";
 
     public TimeFetcher(Context context) {
         _queue = Volley.newRequestQueue(context);
