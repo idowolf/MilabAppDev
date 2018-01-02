@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TimezoneApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="the_current_server_time_is">The current server time is:</string>
+    <string name="_9_42_pm">9:42 PM</string>
+    <string name="refresh">Refresh</string>
+    <string name="use_utc_offset_instead_of_server_time">Use UTC Offset instead of Server Time</string>
+</resources>

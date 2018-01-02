@@ -19,6 +19,7 @@
   "homepage": "https://github.com/idowolf/MilabAppDev#readme",
   "dependencies": {
     "express": "^4.16.2",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "moment-timezone": "^0.5.14"
   }
 }

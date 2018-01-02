@@ -1,17 +1,41 @@
-let express = require('express');
+const express = require('express');
+const fs = require('fs');
+const bodyParser = require('body-parser');
 let app = express();
-let fs = require('fs');
+app.use(bodyParser.json());
+app.set('port', (process.env.PORT || 8080));
 
-function getFormattedTime() {
-    return new Date().toISOString().
+function getFormattedTime(date) {
+    return date.toISOString().
         replace(/T/, ' ').
         replace(/\..+/, '');
 }
 
-app.set('port', (process.env.PORT || 5000));
+function calcTime(inputTzOffset){
+    let now = new Date(); // get the current time
 
-app.get('/', (req, res) => {
-    res.send(getFormattedTime());
+    let currentTzOffset = -now.getTimezoneOffset() / 60
+    let deltaTzOffset = inputTzOffset - currentTzOffset + 2; // timezone diff
+
+    let nowTimestamp = now.getTime(); // get the number of milliseconds since unix epoch 
+    let deltaTzOffsetMilli = deltaTzOffset * 1000 * 60 * 60; // convert hours to milliseconds (tzOffsetMilli*1000*60*60)
+    let outputDate = new Date(nowTimestamp + deltaTzOffsetMilli) // your new Date object with the timezone offset applied.
+
+    return getFormattedTime(outputDate);
+}
+
+function getCurrentFormattedTime() {
+    return new Date().toString();
+}
+
+app.post('/', (req, res, next) => {
+    console.dir(req.body);
+    let timeZone = req.body.timeZone;
+if(timeZone == "" || timeZone == null) {
+    res.json(getCurrentFormattedTime());
+} else {
+    res.send(calcTime(timezone));
+}
 });
 
 app.listen(app.get('port'), function() {
