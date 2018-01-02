@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/utc_offfset"
+        android:layout_alignBottom="@+id/utc_offfset"
         android:textSize="20sp"
         android:text="Offset:" />
 
@@ -60,8 +60,7 @@
         android:id="@+id/utc_offfset"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/check_box"
-        android:layout_marginTop="26dp"
-        android:layout_toLeftOf="@+id/time_view"
-        android:layout_toStartOf="@+id/time_view" />
+        android:layout_marginTop="16dp" />
 </RelativeLayout>
