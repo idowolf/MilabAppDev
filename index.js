@@ -30,11 +30,16 @@ function getCurrentFormattedTime() {
 
 app.post('/', (req, res) => {
     let timeZone = req.body.timeZone;
+ObjectMapper mapper = new ObjectMapper();
+let myTime = "";
 if(timeZone == "" || timeZone == null) {
-    res.json(getCurrentFormattedTime());
+    myTime = getCurrentFormattedTime();
 } else {
-    res.json(calcTime(timezone));
+    myTime = calcTime(timezone);
 }
+  res.json({ 
+    time: myTime
+  });
 });
 
 app.listen(app.get('port'), function() {
