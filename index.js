@@ -30,7 +30,6 @@ function getCurrentFormattedTime() {
 
 app.post('/', (req, res) => {
     let timeZone = req.body.timeZone;
-ObjectMapper mapper = new ObjectMapper();
 let myTime = "";
 if(timeZone == "" || timeZone == null) {
     myTime = getCurrentFormattedTime();
