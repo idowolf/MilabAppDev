@@ -46,7 +46,7 @@ class TimeFetcher {
         JSONObject requestObject = new JSONObject();
         try {
             if(useOffset) {
-                requestObject.put("timezone", timeZone);
+                requestObject.put("timeZone", timeZone);
             }
         }
         catch (JSONException e) {}

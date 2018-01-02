@@ -34,7 +34,7 @@ let myTime = "";
 if(timeZone == "" || timeZone == null) {
     myTime = getCurrentFormattedTime();
 } else {
-    myTime = calcTime(timezone);
+    myTime = calcTime(timeZone);
 }
   res.json({ 
     time: myTime
