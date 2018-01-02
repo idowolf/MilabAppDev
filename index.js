@@ -8,31 +8,9 @@ function getFormattedTime() {
         replace(/\..+/, '');
 }
 
-function readWithFilename(res,filename) {
-    fs.readFile(filename, 'utf8', function(err, contents) {
-        if(err)
-            res.send(`Error loading file ${filename}`);
-        else
-            res.send(contents);
-    });
-}
-
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', (req, res) => {
-    res.send(`Usage: 1. /getTime 2. /getFile?filename=ABC.txt 3. /getFile/ABC.txt`);
-});
-
-app.get('/getFile', (req, res) => {
-    let filename = req.query.filename || "<unknown>";
-    readWithFilename(res,filename)});
-
-app.get('/getFile/:filename', function(req, res) {
-    let filename = req.params.filename;
-    readWithFilename(res,filename);
-});
-
-app.get('/getTime', (req, res) => {
     res.send(getFormattedTime());
 });
 
