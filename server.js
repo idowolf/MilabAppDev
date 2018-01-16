@@ -91,8 +91,8 @@ function readArtist(artist, res) {
 }
 
 // Delete operation (REST DELETE)
-app.delete('/:id', function(req, res) {
-    let entryId = req.params.id;
+app.delete('/:id' , function(req, res) {
+    let entryId = req.query.id;
     deleteEntry(entryId, res);
 });
 
