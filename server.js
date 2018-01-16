@@ -109,7 +109,7 @@ app.put('/:id', function(req, res) {
 });
 
 // Various read operations (REST GET)
-app.get('/read/:songname', function(req, res) {
+app.get('/', function(req, res) {
   if(req.body.songname) {
     readSong(req.body.songname, res);
   } else if(req.body.albumname) {
