@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SocketIOClient</string>
     <string name="action_settings">Settings</string>
-    <string name="connection_established">Connection established</string>
-    <string name="disconnect">Connection finished</string>
-    <string name="error_connect">Error connecting</string>
+    <string name="button_stop">Stop</string>
+    <string name="button_start">Start</string>
+    <string name="message_price">Current Price:</string>
 </resources>

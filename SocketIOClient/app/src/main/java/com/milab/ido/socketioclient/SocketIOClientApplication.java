@@ -12,6 +12,11 @@ import java.net.URISyntaxException;
  */
 
 public class SocketIOClientApplication extends Application {
+    /**
+     * Extend the Application class to create a single Socket instance
+     * connecting to the server and not to use multiple connections from a single client
+     * (Following examples)
+     */
     private Socket mSocket;
     {
         try {
