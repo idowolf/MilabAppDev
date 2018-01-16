@@ -4,8 +4,10 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const MONGO_URL = "mongodb://default:12345678@ds251747.mlab.com:51747/musicdb";
 const ObjectId = require('mongodb').ObjectId;
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 let myDb = "";
 app.set('port', (process.env.PORT || 5000));
 
@@ -97,7 +99,7 @@ app.delete('/:id', function(req, res) {
 // Create operation (REST POST)
 app.post('/', function(req, res) {
     if(!req.body.songname || !req.body.albumname || !req.body.artistname || !req.body.genre) {
-      res.status(400).send({message: "Missing parameters 1"});
+      res.status(400).send({message: "Missing parameters 1" + req.body + "IDO" + req.body[0] });
     } else {
       let status = createEntry(req.body.songname, req.body.albumname, req.body.artistname, req.body.genre, res);
     }
@@ -110,12 +112,12 @@ app.put('/:id', function(req, res) {
 
 // Various read operations (REST GET)
 app.get('/', function(req, res) {
-  if(req.body.songname) {
-    readSong(req.body.songname, res);
-  } else if(req.body.albumname) {
-    readAlbum(req.body.albumname, res);
-  } else if(req.body.artistname) {
-    readArtist(req.body.artistname, res);
+  if(req.query.songname) {
+    readSong(req.query.songname, res);
+  } else if(req.query.albumname) {
+    readAlbum(req.query.albumname, res);
+  } else if(req.query.artistname) {
+    readArtist(req.query.artistname, res);
   } else {
     res.status(400).send({message: "Missing parameters 2"});
   }
