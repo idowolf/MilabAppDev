@@ -22,9 +22,9 @@ function createEntry(song, album, artist, genre, res) {
     });
 }
 
-function deleteEntry(id, res) {
-  myDb.collection('songs').deleteOne({ _id: ObjectId(id) }, function(err, result) {
-      res.send("Deleted song " + id);
+function deleteEntry(delId, res) {
+  myDb.collection('songs').deleteOne({ _id: ObjectId(delId) }, function(err, result) {
+      res.send("Deleted song " + delId);
   });
 }
 
