@@ -97,7 +97,7 @@ app.delete('/:id', function(req, res) {
 // Create operation (REST POST)
 app.post('/', function(req, res) {
     if(!req.body.songname || !req.body.albumname || !req.body.artistname || !req.body.genre) {
-      res.status(400).send({message: "Mising parameters"});
+      res.status(400).send({message: "Missing parameters 1"});
     } else {
       let status = createEntry(req.body.songname, req.body.albumname, req.body.artistname, req.body.genre, res);
     }
@@ -117,7 +117,7 @@ app.get('/', function(req, res) {
   } else if(req.body.artistname) {
     readArtist(req.body.artistname, res);
   } else {
-    res.status(400).send({message: "Mising parameters"});
+    res.status(400).send({message: "Missing parameters 2"});
   }
 });
 
