@@ -17,7 +17,7 @@ function createEntry(song, album, artist, genre, res) {
         if (err) {
             res.send("Error adding new song")
         } else {
-            res.send("Added a new song" + result["ops"][0]["_id"]);
+            res.send("Added a new song " + result["ops"][0]["_id"]);
         }
     });
 }
@@ -106,7 +106,7 @@ app.post('/', function(req, res) {
 });
 
 // Update operation (REST PUT)
-app.put('/:id', function(req, res) {
+app.put('/', function(req, res) {
     updateEntry(req.body.id, req.body.songname, req.body.albumname, req.body.artistname, req.body.genre, res);
 });
 
